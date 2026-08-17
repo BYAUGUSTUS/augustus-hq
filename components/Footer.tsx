@@ -6,21 +6,27 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
-  const [utcTime, setUtcTime] = useState<string>("");
+  const [localTime, setLocalTime] = useState<string>("");
 
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const hours = String(now.getUTCHours()).padStart(2, "0");
-      const minutes = String(now.getUTCMinutes()).padStart(2, "0");
-      const seconds = String(now.getUTCSeconds()).padStart(2, "0");
-      setUtcTime(`${hours}:${minutes}:${seconds} UTC`);
-    };
+  // useEffect(() => {
+  //   const updateTime = () => {
+  //     const now = new Date();
+  //     let hours = now.getHours();
+  //     const minutes = String(now.getMinutes()).padStart(2, "0");
+  //     const seconds = String(now.getSeconds()).padStart(2, "0");
+  //     const ampm = hours >= 12 ? "PM" : "AM";
 
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
+  //     hours = hours % 12;
+  //     hours = hours ? hours : 12; // 0 becomes 12
+  //     const strHours = String(hours).padStart(2, "0");
+
+  //     setLocalTime(`${strHours}:${minutes}:${seconds} ${ampm} LOCAL`);
+  //   };
+
+  //   updateTime();
+  //   const interval = setInterval(updateTime, 1000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   const socialLinks = [
     { label: "GITHUB", href: "https://github.com/byaugustus" },
@@ -33,14 +39,15 @@ export default function Footer() {
     <footer className="w-full bg-[#000000] border-t border-[#27272A] pt-6 pb-12 sm:pb-6 px-4 sm:px-10 font-mono text-[10px] sm:text-xs select-none">
       <div className="max-w-[1800px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 text-center md:text-left">
         
-        {/* Left Column: Live UTC Telemetry & Build Revision */}
+        {/* Left Column: Live UTC Telemetry & Build Revision
         <div className="flex items-center justify-center md:justify-start gap-3 sm:gap-4 text-[#71717A] text-[10px] sm:text-xs">
-          <span className="text-[#FFFFFF] tabular-nums tracking-widest font-semibold">
-            {utcTime || "--:--:-- UTC"}
+          <span className="text-[#343A40]">/</span>
+          <span className="text-xs text-[#71717A] tracking-tactical tabular-nums hidden sm:inline-block">
+            {localTime || "--:--:-- -- LOCAL"}
           </span>
           <span className="text-[#27272A]">/</span>
           <span className="tracking-widest">REV: 2026.04-SECURE</span>
-        </div>
+        </div> */}
 
         {/* Center Column: Copyright Provenance */}
         <div className="text-[#71717A] tracking-widest text-[9px] sm:text-xs">
