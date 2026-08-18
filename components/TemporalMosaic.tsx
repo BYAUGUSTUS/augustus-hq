@@ -268,7 +268,6 @@ export default function TemporalMosaic() {
       {/* Top Header HUD */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-[#27272A] pb-2 sm:pb-3 mb-2 sm:mb-4 max-w-[1000px] mx-auto w-full gap-2 shrink-0">
         <div className="flex items-center gap-2 sm:gap-3">
-          <span className="w-2 h-2 rounded-full bg-[#00FF9D] animate-pulse" />
           <span className="text-[10px] sm:text-xs text-[#F8F9FA] tracking-widest uppercase font-bold">
             TEMPORAL MOSAIC // 4×4 ARRAY
           </span>
@@ -424,7 +423,6 @@ export default function TemporalMosaic() {
               : "03 // UNIFIED EMBLEM"}
           </strong>
         </span>
-        <span className="text-[#00FF9D] tracking-widest">[STATE: KINETIC_SYNC]</span>
       </div>
 
     </section>

@@ -193,7 +193,7 @@ export default function RARM() {
           </h3>
 
           <p className="font-sans text-xs text-[#A1A1AA] leading-relaxed mt-1">
-            Precision articulated kinematic arm integrating custom harmonic drives, embedded speech recognition, and real-time inverse kinematics[cite: 1, 2].
+            Precision articulated kinematic arm integrating custom harmonic drives, embedded speech recognition, and real-time inverse kinematics.
           </p>
         </div>
 
@@ -282,12 +282,8 @@ export default function RARM() {
         
         <div className="max-w-xl">
           <div className="flex items-center gap-2 text-xs mb-1.5">
-            <span className="w-2 h-2 rounded-full bg-[#00FF9D] animate-pulse" />
             <span className="text-[#00FF9D] font-bold tracking-widest">[3D VIEWPORT // ACTIVE]</span>
             <span className="text-[#27272A]">/</span>
-            <span className="text-[#00E5FF] text-[10px] flex items-center gap-1 font-semibold">
-              <Mic className="w-3.5 h-3.5 text-[#00E5FF]" /> VOICE CONTROLLED
-            </span>
           </div>
 
           <h3 className="text-xl sm:text-2xl font-extrabold text-[#FFFFFF] font-sans tracking-tight uppercase">
@@ -295,7 +291,7 @@ export default function RARM() {
           </h3>
 
           <p className="font-sans text-xs sm:text-sm text-[#A1A1AA] leading-relaxed mt-1">
-            Precision articulated kinematic arm integrating custom harmonic drives, embedded speech recognition, and real-time inverse kinematics[cite: 1, 2].
+            Precision articulated kinematic arm integrating custom harmonic drives, embedded speech recognition, and real-time inverse kinematics.
           </p>
         </div>
 

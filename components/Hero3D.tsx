@@ -189,7 +189,7 @@ export default function Hero3D() {
           </h3>
 
           <p className="font-sans text-xs text-[#A1A1AA] leading-relaxed mt-1">
-            Custom 4WD high-speed kinematic testbed engineered for real-time edge perception and high-frequency RTOS telemetry[cite: 1].
+            Custom 4WD high-speed kinematic testbed engineered for real-time edge perception and high-frequency RTOS telemetry.
           </p>
         </div>
 
@@ -278,7 +278,6 @@ export default function Hero3D() {
         
         <div className="max-w-xl">
           <div className="flex items-center gap-2 text-xs mb-1.5">
-            <span className="w-2 h-2 rounded-full bg-[#00FF9D] animate-pulse" />
             <span className="text-[#00FF9D] font-bold tracking-widest">[3D VIEWPORT // ACTIVE]</span>
           </div>
 
@@ -287,7 +286,7 @@ export default function Hero3D() {
           </h3>
 
           <p className="font-sans text-xs sm:text-sm text-[#A1A1AA] leading-relaxed mt-1">
-            Custom 4WD high-speed kinematic testbed engineered for real-time edge perception and high-frequency RTOS telemetry[cite: 1].
+            Custom 4WD high-speed kinematic testbed engineered for real-time edge perception and high-frequency RTOS telemetry.
           </p>
         </div>
 

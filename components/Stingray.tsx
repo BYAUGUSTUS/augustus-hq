@@ -282,12 +282,8 @@ export default function Stingray() {
         
         <div className="max-w-xl">
           <div className="flex items-center gap-2 text-xs mb-1.5">
-            <span className="w-2 h-2 rounded-full bg-[#00FF9D] animate-pulse" />
             <span className="text-[#00FF9D] font-bold tracking-widest">[3D VIEWPORT // ACTIVE]</span>
             <span className="text-[#27272A]">/</span>
-            <span className="text-[#00E5FF] text-[10px] flex items-center gap-1 font-semibold">
-              <ShieldAlert className="w-3.5 h-3.5 text-[#00E5FF]" /> AUTONOMOUS PLATFORM
-            </span>
           </div>
 
           <h3 className="text-xl sm:text-2xl font-extrabold text-[#FFFFFF] font-sans tracking-tight uppercase">

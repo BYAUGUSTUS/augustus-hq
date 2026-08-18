@@ -1,12 +1,11 @@
 // filepath: components/Footer.tsx
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
-  const [localTime, setLocalTime] = useState<string>("");
+
 
   // useEffect(() => {
   //   const updateTime = () => {
@@ -30,7 +29,7 @@ export default function Footer() {
 
   const socialLinks = [
     { label: "GITHUB", href: "https://github.com/byaugustus" },
-    { label: "LINKEDIN", href: "https://linkedin.com" },
+    { label: "LINKEDIN", href: "https://linkedin.com/hitenbalara" },
     { label: "YOUTUBE", href: "https://youtube.com/@byaugustus" },
     { label: "DEVSORA", href: "https://devsora.com" },
   ];
