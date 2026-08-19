@@ -90,7 +90,7 @@ export default function ScienceLayer() {
             className="px-5 py-2.5 border border-[#C8A27A] bg-[#C8A27A] text-[#000000] hover:bg-transparent hover:text-[#C8A27A] transition-all flex items-center justify-center gap-2 text-xs uppercase font-bold tracking-wider"
           >
             <ExternalLink className="w-3.5 h-3.5" />
-            <span>[ OPEN FULL PAPER ↗ ]</span>
+            <span>OPEN FULL PAPER</span>
           </a>
 
           <a
@@ -99,7 +99,7 @@ export default function ScienceLayer() {
             className="px-5 py-2.5 border border-[#27272A] bg-[#050505] text-[#A1A1AA] hover:border-[#C8A27A] hover:text-[#C8A27A] transition-all flex items-center justify-center gap-2 text-xs uppercase font-bold tracking-wider"
           >
             <Download className="w-3.5 h-3.5 text-[#C8A27A]" />
-            <span>[ DOWNLOAD PDF ]</span>
+            <span>DOWNLOAD PDF</span>
           </a>
         </div>
 

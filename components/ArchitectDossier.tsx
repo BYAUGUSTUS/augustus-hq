@@ -30,8 +30,7 @@ export default function ArchitectDossier() {
                 }}
               />
               <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-[#000000] to-transparent flex items-center justify-between text-[11px]">
-                <span className="text-[#C8A27A] font-bold">HITEN BALARA</span>
-                <span className="text-[#C8A27A]">[ JAIPUR ]</span>
+
               </div>
             </div>
 
@@ -41,7 +40,7 @@ export default function ArchitectDossier() {
               className="mt-4 w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-full py-2.5 sm:py-3 px-4 border border-[#C8A27A]/40 bg-[#C8A27A]/10 text-[#F5F0E6] hover:bg-[#C8A27A] hover:text-[#000000] transition-all flex items-center justify-center gap-2 text-xs tracking-wider uppercase font-bold group"
             >
               <FileDown className="w-4 h-4 text-[#C8A27A] group-hover:text-[#000000] transition-colors" />
-              <span>[ DOWNLOAD CV ]</span>
+              <span> DOWNLOAD CV </span>
             </a>
           </div>
 

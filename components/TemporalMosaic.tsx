@@ -280,11 +280,11 @@ export default function TemporalMosaic() {
               onClick={() => setActiveFace(0)}
               className={`px-2 py-0.5 sm:px-3 sm:py-1 border text-[9px] sm:text-xs uppercase transition-colors font-bold ${
                 activeFace === 0
-                  ? "border-[#00FF9D] text-[#00FF9D] bg-[#00FF9D]/10"
+                  ? "border-[#C8A27A] text-[#C8A27A] bg-[#C8A27A]/10"
                   : "border-[#27272A] text-[#71717A] hover:text-[#F8F9FA]"
               }`}
             >
-              [ 01: TECH STACK ]
+              TECH STACK
             </button>
             <button
               onClick={() => setActiveFace(1)}
@@ -294,7 +294,7 @@ export default function TemporalMosaic() {
                   : "border-[#27272A] text-[#71717A] hover:text-[#F8F9FA]"
               }`}
             >
-              [ 02: DOMAINS ]
+              DOMAINS
             </button>
             <button
               onClick={() => setActiveFace(2)}
@@ -304,7 +304,7 @@ export default function TemporalMosaic() {
                   : "border-[#27272A] text-[#71717A] hover:text-[#F8F9FA]"
               }`}
             >
-              [ 03: UNIFIED LOGO ]
+              UNIFIED BRAND
             </button>
           </div>
         </div>
@@ -330,14 +330,14 @@ export default function TemporalMosaic() {
                     FACE 0: TECH STACK (LARGE LABELS)
                 ==================================================== */}
                 <div
-                  className="absolute inset-0 w-full h-full [backface-visibility:hidden] p-1.5 sm:p-2.5 md:p-3 flex flex-col justify-between border border-[#00FF9D]/20 bg-[#000000]"
+                  className="absolute inset-0 w-full h-full [backface-visibility:hidden] p-1.5 sm:p-2.5 md:p-3 flex flex-col justify-between border border-[#C8A27A]/20 bg-[#000000]"
                   style={{ transform: "rotateY(0deg) translateZ(1px)" }}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-[7px] sm:text-[9px] md:text-[10px] text-[#00FF9D] font-bold truncate">
+                    <span className="text-[7px] sm:text-[9px] md:text-[10px] text-[#C8A27A] font-bold truncate">
                       {tile.techCategory}
                     </span>
-                    <TechIcon className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 text-[#71717A] group-hover:text-[#00FF9D] transition-colors shrink-0" />
+                    <TechIcon className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 text-[#71717A] group-hover:text-[#C8A27A] transition-colors shrink-0" />
                   </div>
 
                   <div className="my-auto">
@@ -348,7 +348,7 @@ export default function TemporalMosaic() {
 
                   <div className="text-[6px] sm:text-[8px] md:text-[9px] text-[#71717A] border-t border-[#27272A] pt-0.5 flex justify-between">
                     <span className="hidden sm:inline">STACK NODE</span>
-                    <span className="text-[#00FF9D]">#{String(tile.id + 1).padStart(2, "0")}</span>
+                    <span className="text-[#C8A27A]">#{String(tile.id + 1).padStart(2, "0")}</span>
                   </div>
                 </div>
 
@@ -394,7 +394,7 @@ export default function TemporalMosaic() {
                       filter: "contrast(1.5) brightness(1.05)",
                     }}
                   />
-                  <div className="absolute inset-0 bg-[#00FF9D]/5 pointer-events-none" />
+                  <div className="absolute inset-0 bg-[#C8A27A]/5 pointer-events-none" />
                   <div className="absolute top-1 right-1 text-[6px] sm:text-[8px] text-[#F8F9FA]/80 bg-[#000000]/85 px-1 py-0.5 border border-[#27272A]">
                     [{tile.row},{tile.col}]
                   </div>
@@ -417,10 +417,10 @@ export default function TemporalMosaic() {
           ACTIVE FEED:{" "}
           <strong className="text-[#FFFFFF]">
             {activeFace === 0
-              ? "01 // TECH STACK"
+              ? "TECH STACK"
               : activeFace === 1
-              ? "02 // DOMAINS"
-              : "03 // UNIFIED EMBLEM"}
+              ? "DOMAINS"
+              : "UNIFIED EMBLEM"}
           </strong>
         </span>
       </div>

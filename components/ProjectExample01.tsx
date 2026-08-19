@@ -17,7 +17,6 @@ interface ProjectExample01Props {
 
 export default function ProjectExample01({
   title = "FLANKER B // Su-27",
-  category = "HARDWARE SPEC // CAD BLUEPRINT",
   description = "JET || EXAMPLE PAGE FOR TESTING || QWERTYUIASDFGHJzXCVBNWERTYUDSFGHCVBNFYVGHVEXRECTRVFYGBUHNIWSERCDTFVYGBUHNIJZESXRDCTFVYGBUHN",
   schematicImage = "/ProjectExampleImage.png",
   docsUrl = "https://docs.byaugustus.com",
@@ -31,13 +30,6 @@ export default function ProjectExample01({
       <div className="absolute top-16 sm:top-20 md:top-24 left-4 sm:left-8 md:left-12 right-4 sm:right-8 md:right-12 z-30 font-mono flex flex-col md:flex-row md:items-start justify-between gap-4 pointer-events-none">
         
         <div className="max-w-2xl">
-          <div className="flex items-center gap-2 text-xs mb-1.5">
-
-            <span className="text-[#C8A27A] font-bold tracking-widest uppercase">
-              [{category}]
-            </span>
-          </div>
-
           <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#FFFFFF] font-sans tracking-tight uppercase">
             {title}
           </h3>
@@ -55,8 +47,7 @@ export default function ProjectExample01({
             rel="noopener noreferrer"
             className="px-3 py-1.5 border border-[#27272A] bg-[#000000]/80 text-[#A1A1AA] hover:border-[#C8A27A] hover:bg-[#C8A27A] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold backdrop-blur-sm"
           >
-            <BookOpen className="w-3.5 h-3.5 text-[#C8A27A]" />
-            <span>[ DOCS ↗ ]</span>
+            <span>DOCS</span>
           </Link>
 
           <Link
@@ -65,16 +56,7 @@ export default function ProjectExample01({
             rel="noopener noreferrer"
             className="px-3 py-1.5 border border-[#27272A] bg-[#000000]/80 text-[#A1A1AA] hover:border-[#C8A27A] hover:bg-[#C8A27A] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold backdrop-blur-sm"
           >
-            <GitBranch className="w-3.5 h-3.5 text-[#C8A27A]" />
-            <span>[ GITHUB ↗ ]</span>
-          </Link>
-
-          <Link
-            href={vaultUrl}
-            className="px-3.5 py-1.5 border border-[#C8A27A]/50 bg-[#C8A27A]/10 text-[#FFFFFF] hover:border-[#C8A27A] hover:bg-[#C8A27A] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold backdrop-blur-sm"
-          >
-            <Box className="w-3.5 h-3.5 text-[#C8A27A]" />
-            <span>[ VAULT CAD ↗ ]</span>
+            <span>GITHUB</span>
           </Link>
         </div>
 

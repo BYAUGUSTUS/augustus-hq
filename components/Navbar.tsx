@@ -172,7 +172,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             className="px-3.5 py-1.5 border border-[#343A40] text-[#FFFFFF] hover:border-[#C8A27A] hover:bg-[#C8A27A] hover:text-[#000000] transition-all duration-150 flex items-center gap-1.5"
           >
-            <span>[DEVSORA ↗]</span>
+            <span>DEVSORA ↗</span>
           </Link>
         </nav>
 
