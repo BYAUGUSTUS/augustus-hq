@@ -65,7 +65,7 @@ export default function ArchitectDossier() {
                 </p>
                 <p>
                   <span className="text-[#FFFFFF] font-semibold">Currently building: </span> 
-                  DevSora Robotics - an independent deep-tech venture focused on open robotics, autonomous systems, and intelligent machines[cite: 1, 6].
+                  DevSora Robotics - an independent deep-tech venture focused on open robotics, autonomous systems, and intelligent machines.
                 </p>
               </div>
             </div>

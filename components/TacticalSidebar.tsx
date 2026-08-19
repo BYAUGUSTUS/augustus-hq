@@ -1,7 +1,7 @@
 // filepath: components/TacticalSidebar.tsx
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 interface SectionNode {
@@ -11,31 +11,53 @@ interface SectionNode {
 }
 
 const SECTIONS: SectionNode[] = [
-  { id: "hero", slideId: "slide-hero", label: "MAIN DECK", },
-  { id: "dossier", slideId: "slide-dossier", label: "ARCHITECT DOSSIER", },
-  { id: "hero3d", slideId: "slide-hero3d", label: "RC18 KINEMATIC CHASSIS", },
-  { id: "rarm", slideId: "slide-rarm", label: "6-DOF ROBOTIC ARM", },
-  { id: "stingray", slideId: "slide-stingray", label: "STINGRAY UAV", },
-  { id: "mosaic", slideId: "slide-mosaic", label: "TEMPORAL MOSAIC", },
-  { id: "science", slideId: "slide-science", label: "RESEARCH PAPER", },
+  { id: "hero", slideId: "slide-hero", label: "MAIN DECK" },
+  { id: "dossier", slideId: "slide-dossier", label: "ARCHITECT DOSSIER" },
+  { id: "hero3d", slideId: "slide-hero3d", label: "RC18 KINEMATIC CHASSIS" },
+  { id: "rarm", slideId: "slide-rarm", label: "6-DOF ROBOTIC ARM" },
+  { id: "stingray", slideId: "slide-stingray", label: "STINGRAY UAV" },
+  { id: "project", slideId: "slide-project", label: "PROJECT EXAMPLE" },
+  { id: "project01", slideId: "slide-project01", label: "PROJECT EXAMPLE 01" },
+  { id: "mosaic", slideId: "slide-mosaic", label: "TEMPORAL MOSAIC" },
+  { id: "science", slideId: "slide-science", label: "RESEARCH PAPER" },
 ];
 
 export default function TacticalSidebar() {
   const [activeSlide, setActiveSlide] = useState<string>("slide-hero");
   const [hoveredSlide, setHoveredSlide] = useState<string | null>(null);
+  const ratioMap = useRef<Record<string, number>>({});
 
   useEffect(() => {
-    const observerCallback: IntersectionObserverCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSlide(entry.target.id);
-        }
-      });
-    };
+    const scrollContainer = document.querySelector(".slideshow-deck");
 
-    const observer = new IntersectionObserver(observerCallback, {
-      threshold: 0.5,
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          ratioMap.current[entry.target.id] = entry.isIntersecting
+            ? entry.intersectionRatio
+            : 0;
+        });
+
+        // Find the section with highest visible area on screen
+        let maxRatio = 0;
+        let mostVisibleId = "";
+
+        Object.entries(ratioMap.current).forEach(([id, ratio]) => {
+          if (ratio > maxRatio) {
+            maxRatio = ratio;
+            mostVisibleId = id;
+          }
+        });
+
+        if (mostVisibleId) {
+          setActiveSlide(mostVisibleId);
+        }
+      },
+      {
+        root: scrollContainer || null,
+        threshold: [0, 0.25, 0.5, 0.75, 1.0],
+      }
+    );
 
     SECTIONS.forEach((sec) => {
       const el = document.getElementById(sec.slideId);
@@ -53,7 +75,7 @@ export default function TacticalSidebar() {
   };
 
   return (
-    <aside className="fixed right-6 sm:right-8 top-1/2 -translate-y-1/2 z-50 font-mono select-none flex flex-col items-end gap-3.5 group/nav">
+    <aside className="fixed right-6 sm:right-8 top-1/2 -translate-y-1/2 z-50 font-mono select-none hidden md:flex flex-col items-end gap-3.5 group/nav">
       {SECTIONS.map((sec) => {
         const isActive = activeSlide === sec.slideId;
         const isHovered = hoveredSlide === sec.slideId;

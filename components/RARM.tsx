@@ -175,96 +175,73 @@ export default function RARM() {
   // ========================================================
   if (isMobile) {
     return (
-      <div className="w-full h-full min-h-screen bg-[#000000] px-5 py-16 flex flex-col justify-between items-center font-mono select-none border-y border-[#27272A] relative overflow-hidden">
+      <div className="w-full h-full min-h-screen relative z-20 flex flex-col justify-center items-center px-4 sm:px-8 md:px-12 font-mono select-none border-y border-[#27272A] overflow-hidden">
         
-        {/* Top Spec Header */}
-        <div className="w-full flex flex-col items-start border-b border-[#27272A] pb-3 z-10">
-          <div className="flex items-center gap-2 text-[10px] text-[#00FF9D] tracking-widest font-bold uppercase mb-1">
-            <span className="w-2 h-2 rounded-full bg-[#00FF9D] animate-pulse" />
-            <span>SEC-SPEC // 04</span>
-            <span className="text-[#27272A]">/</span>
-            <span className="text-[#00E5FF] flex items-center gap-1">
-              <Mic className="w-3 h-3 text-[#00E5FF]" /> VOICE CONTROLLED
-            </span>
-          </div>
-
-          <h3 className="text-xl font-extrabold text-[#FFFFFF] font-sans tracking-tight uppercase">
-            6-DOF ROBOTIC ARM
-          </h3>
-
-          <p className="font-sans text-xs text-[#A1A1AA] leading-relaxed mt-1">
-            Precision articulated kinematic arm integrating custom harmonic drives, embedded speech recognition, and real-time inverse kinematics.
-          </p>
-        </div>
-
-        {/* Center Blueprint Graphic Box */}
-        <div className="w-full max-w-[320px] aspect-square my-auto relative border border-[#27272A] bg-[#050505] p-3 flex flex-col justify-between overflow-hidden shadow-2xl">
+        {/* TOP HUD: Info, Title, & Action Buttons */}
+        <div className="absolute top-16 sm:top-20 md:top-24 left-4 sm:left-8 md:left-12 right-4 sm:right-8 md:right-12 z-30 font-mono flex flex-col md:flex-row md:items-start justify-between gap-4 pointer-events-none">
           
-          {/* Blueprint Grid Lines */}
-          <div
-            className="absolute inset-0 pointer-events-none opacity-25"
-            style={{
-              backgroundImage:
-                "linear-gradient(to right, #00FF9D 1px, transparent 1px), linear-gradient(to bottom, #00FF9D 1px, transparent 1px)",
-              backgroundSize: "24px 24px",
-            }}
-          />
-
-          {/* Blueprint Image / Emblem Preview */}
-          <div
-            className="w-full h-full bg-contain bg-center bg-no-repeat z-10"
-            style={{
-              backgroundImage: "url('/BY_Major.png')",
-              filter: "contrast(1.2) brightness(0.95)",
-            }}
-          />
-
-          {/* Desktop Only Notice Banner */}
-          <div className="z-20 bg-[#000000]/95 border border-[#00E5FF]/40 p-2.5 flex items-center justify-between text-[10px] text-[#00E5FF]">
-            <div className="flex items-center gap-1.5 font-bold">
-              <Monitor className="w-3.5 h-3.5 text-[#00E5FF]" />
-              <span>[ 3D CAD: PC / WIDESCREEN ONLY ]</span>
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-2 text-xs mb-1.5">
+              <span className="text-[#00FF9D] font-bold tracking-widest uppercase">
+                [3D VIEWPORT // ACTIVE]
+              </span>
             </div>
-            <span className="text-[#71717A] text-[9px]">DESKTOP VIEW</span>
-          </div>
-        </div>
 
-        {/* Bottom Actions & Spec Readout */}
-        <div className="w-full flex flex-col gap-3 z-10 border-t border-[#27272A] pt-3">
-          <div className="flex items-center justify-between text-[10px] text-[#71717A]">
-            <span>KINEMATICS: <strong className="text-[#FFFFFF]">6-AXIS D-H MATRIX</strong></span>
-            <span className="text-[#00FF9D]">[VERIFIED CAD]</span>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#FFFFFF] font-sans tracking-tight uppercase">
+              RC18 KINEMATIC CHASSIS
+            </h3>
+
+            <p className="font-sans text-xs sm:text-sm text-[#A1A1AA] leading-relaxed mt-1 line-clamp-2 sm:line-clamp-none">
+              Custom 4WD high-speed kinematic testbed engineered for real-time edge perception and high-frequency RTOS telemetry.
+            </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-2 w-full">
+          {/* Action Vectors */}
+          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 pointer-events-auto">
             <Link
               href="https://docs.byaugustus.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="py-2.5 px-1 border border-[#27272A] bg-[#050505] text-[#A1A1AA] hover:text-[#FFFFFF] flex items-center justify-center gap-1 text-[10px] font-bold"
+              className="px-3 py-1.5 border border-[#27272A] bg-[#000000]/80 text-[#A1A1AA] hover:border-[#00FF9D] hover:bg-[#00FF9D] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold backdrop-blur-sm"
             >
-              <BookOpen className="w-3 h-3 text-[#00FF9D]" />
-              <span>[ DOCS ]</span>
+              <BookOpen className="w-3.5 h-3.5 text-[#00FF9D]" />
+              <span>[ DOCS ↗ ]</span>
             </Link>
 
             <Link
               href="https://github.com/byaugustus"
               target="_blank"
               rel="noopener noreferrer"
-              className="py-2.5 px-1 border border-[#27272A] bg-[#050505] text-[#A1A1AA] hover:text-[#FFFFFF] flex items-center justify-center gap-1 text-[10px] font-bold"
+              className="px-3 py-1.5 border border-[#27272A] bg-[#000000]/80 text-[#A1A1AA] hover:border-[#00FF9D] hover:bg-[#00FF9D] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold backdrop-blur-sm"
             >
-              <GitBranch className="w-3 h-3 text-[#00FF9D]" />
-              <span>[ GITHUB ]</span>
+              <GitBranch className="w-3.5 h-3.5 text-[#00FF9D]" />
+              <span>[ GITHUB ↗ ]</span>
             </Link>
 
             <Link
               href="#slide-mosaic"
-              className="py-2.5 px-1 border border-[#00FF9D]/40 bg-[#00FF9D]/10 text-[#00FF9D] flex items-center justify-center gap-1 text-[10px] font-bold"
+              className="px-3.5 py-1.5 border border-[#00FF9D]/50 bg-[#00FF9D]/10 text-[#FFFFFF] hover:border-[#00FF9D] hover:bg-[#00FF9D] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold backdrop-blur-sm"
             >
-              <Box className="w-3 h-3 text-[#00FF9D]" />
-              <span>[ VAULT ]</span>
+              <Box className="w-3.5 h-3.5 text-[#00FF9D]" />
+              <span>[ VAULT CAD ↗ ]</span>
             </Link>
           </div>
+
+        </div>
+
+        {/* FULL VERTICAL SCHEMATIC VIEWPORT (Edge-Fade Masked Bleed) */}
+        <div className="w-full h-[78vh] sm:h-[82vh] md:h-[86vh] max-w-6xl relative flex items-center justify-center mt-12 sm:mt-16 pointer-events-none">
+          <div
+            className="w-full h-full bg-contain bg-center bg-no-repeat transition-transform duration-700"
+            style={{
+              backgroundImage: "url('/BY_Major.png')", // Replace with RC18 blueprint/schematic asset if desired
+              maskImage:
+                "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 8%, rgba(0,0,0,1) 92%, rgba(0,0,0,0) 100%)",
+              WebkitMaskImage:
+                "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 8%, rgba(0,0,0,1) 92%, rgba(0,0,0,0) 100%)",
+              filter: "contrast(1.15) brightness(0.95)",
+            }}
+          />
         </div>
 
       </div>

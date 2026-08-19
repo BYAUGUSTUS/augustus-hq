@@ -4,6 +4,8 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import ArchitectDossier from "@/components/ArchitectDossier";
+import ProjectExample from "@/components/ProjectExample";
+import ProjectExample01 from "@/components/ProjectExample01";
 import TemporalMosaic from "@/components/TemporalMosaic";
 import ScienceLayer from "@/components/ScienceLayer";
 import TacticalSidebar from "@/components/TacticalSidebar";
@@ -81,11 +83,22 @@ export default function HomePage() {
         <Stingray />
       </section>
 
-      {/* SLIDE 6: Temporal Mosaic 4x4 */}
+      {/* SLIDE 6: Project Example */}
+      <section id="slide-project" className="snap-slide bg-[#000000]">
+        <ProjectExample />
+      </section>
+
+      {/* SLIDE 6A: PROJECT EXAMPLE01*/}
+      <section id="slide-project01" className="snap-slide bg-[#000000]">
+        <ProjectExample01 />
+      </section>
+
+      {/* SLIDE 7: Temporal Mosaic 4x4 */}
       <section id="slide-mosaic" className="snap-slide bg-[#000000]">
         <TemporalMosaic />
       </section>
-      {/* SLIDE 7: Research Paper Viewer */}
+
+      {/* SLIDE 8: Research Paper Viewer */}
       <section id="slide-science" className="snap-slide bg-[#000000]">
         <ScienceLayer />
       </section>
