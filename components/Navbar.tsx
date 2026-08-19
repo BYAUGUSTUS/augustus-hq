@@ -124,7 +124,7 @@ export default function Navbar() {
           <Link
             href="/"
             onClick={() => setActiveCategory(null)}
-            className="text-sm font-extrabold tracking-widest text-[#FFFFFF] px-2 py-1 border border-transparent hover:bg-[#00FF9D] hover:text-[#000000] hover:border-[#00FF9D] transition-all duration-150 uppercase"
+            className="text-sm font-extrabold tracking-widest text-[#FFFFFF] px-2 py-1 border border-transparent hover:bg-[#C8A27A] hover:text-[#000000] hover:border-[#C8A27A] transition-all duration-150 uppercase"
           >
             BY~AUGUSTUS
           </Link>
@@ -156,7 +156,7 @@ export default function Navbar() {
                   {isActive && (
                     <motion.div
                       layoutId="activeNavIndicator"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00FF9D]"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#C8A27A]"
                       transition={{ duration: 0.2 }}
                     />
                   )}
@@ -170,7 +170,7 @@ export default function Navbar() {
             href="https://devsora.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3.5 py-1.5 border border-[#343A40] text-[#FFFFFF] hover:border-[#00FF9D] hover:bg-[#00FF9D] hover:text-[#000000] transition-all duration-150 flex items-center gap-1.5"
+            className="px-3.5 py-1.5 border border-[#343A40] text-[#FFFFFF] hover:border-[#C8A27A] hover:bg-[#C8A27A] hover:text-[#000000] transition-all duration-150 flex items-center gap-1.5"
           >
             <span>[DEVSORA ↗]</span>
           </Link>
@@ -180,7 +180,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setMobileMenuOpen((prev) => !prev)}
-          className="md:hidden text-[#FFFFFF] p-2 hover:text-[#00FF9D] transition-colors"
+          className="md:hidden text-[#FFFFFF] p-2 hover:text-[#C8A27A] transition-colors"
           aria-label="Toggle navigation menu"
         >
           {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -220,10 +220,10 @@ export default function Navbar() {
                     onClick={() => setActiveCategory(null)}
                     target={activeCategory.isExternal ? "_blank" : undefined}
                     rel={activeCategory.isExternal ? "noopener noreferrer" : undefined}
-                    className="font-mono text-xs text-[#FFFFFF] hover:text-[#00FF9D] tracking-widest uppercase flex items-center gap-2 group"
+                    className="font-mono text-xs text-[#FFFFFF] hover:text-[#C8A27A] tracking-widest uppercase flex items-center gap-2 group"
                   >
                     <span>EXPLORE ALL {activeCategory.label} SYSTEMS</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-[#71717A] group-hover:text-[#00FF9D] transition-colors" />
+                    <ArrowUpRight className="w-3.5 h-3.5 text-[#71717A] group-hover:text-[#C8A27A] transition-colors" />
                   </Link>
                 </div>
               </div>
@@ -237,10 +237,10 @@ export default function Navbar() {
                     onClick={() => setActiveCategory(null)}
                     target={link.isExternal ? "_blank" : undefined}
                     rel={link.isExternal ? "noopener noreferrer" : undefined}
-                    className="group py-2 border-b border-[#27272A]/40 hover:border-[#00FF9D]/60 transition-colors flex items-center justify-between"
+                    className="group py-2 border-b border-[#27272A]/40 hover:border-[#C8A27A]/60 transition-colors flex items-center justify-between"
                   >
                     <div className="flex items-center gap-3">
-                      <span className="text-[#71717A] group-hover:text-[#00FF9D] transition-colors font-mono text-xs">
+                      <span className="text-[#71717A] group-hover:text-[#C8A27A] transition-colors font-mono text-xs">
                         +
                       </span>
                       <span className="text-sm font-medium text-[#D4D4D8] group-hover:text-[#FFFFFF] transition-colors tracking-tight">
@@ -248,7 +248,7 @@ export default function Navbar() {
                       </span>
                     </div>
                     {link.isExternal && (
-                      <ArrowUpRight className="w-3.5 h-3.5 text-[#71717A] group-hover:text-[#00FF9D] transition-colors" />
+                      <ArrowUpRight className="w-3.5 h-3.5 text-[#71717A] group-hover:text-[#C8A27A] transition-colors" />
                     )}
                   </Link>
                 ))}
@@ -283,7 +283,7 @@ export default function Navbar() {
                       <span className="text-sm font-bold">{cat.label}</span>
                       <Plus
                         className={`w-4 h-4 text-[#71717A] transition-transform duration-200 ${
-                          isExpanded ? "rotate-45 text-[#00FF9D]" : ""
+                          isExpanded ? "rotate-45 text-[#C8A27A]" : ""
                         }`}
                       />
                     </div>
@@ -319,7 +319,7 @@ export default function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 w-full py-3 px-4 border border-[#343A40] text-[#FFFFFF] hover:border-[#00FF9D] hover:bg-[#00FF9D] hover:text-[#000000] transition-all flex items-center justify-center gap-1.5"
+                className="mt-4 w-full py-3 px-4 border border-[#343A40] text-[#FFFFFF] hover:border-[#C8A27A] hover:bg-[#C8A27A] hover:text-[#000000] transition-all flex items-center justify-center gap-1.5"
               >
                 <span>[DEVSORA ↗]</span>
               </Link>

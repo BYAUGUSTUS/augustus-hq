@@ -33,7 +33,7 @@ export default function ProjectExample({
         <div className="max-w-2xl">
           <div className="flex items-center gap-2 text-xs mb-1.5">
 
-            <span className="text-[#00FF9D] font-bold tracking-widest uppercase">
+            <span className="text-[#C8A27A] font-bold tracking-widest uppercase">
               [{category}]
             </span>
           </div>
@@ -53,9 +53,9 @@ export default function ProjectExample({
             href={docsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 py-1.5 border border-[#27272A] bg-[#000000]/80 text-[#A1A1AA] hover:border-[#00FF9D] hover:bg-[#00FF9D] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold backdrop-blur-sm"
+            className="px-3 py-1.5 border border-[#27272A] bg-[#000000]/80 text-[#A1A1AA] hover:border-[#C8A27A] hover:bg-[#C8A27A] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold backdrop-blur-sm"
           >
-            <BookOpen className="w-3.5 h-3.5 text-[#00FF9D]" />
+            <BookOpen className="w-3.5 h-3.5 text-[#C8A27A]" />
             <span>[ DOCS ↗ ]</span>
           </Link>
 
@@ -63,17 +63,17 @@ export default function ProjectExample({
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 py-1.5 border border-[#27272A] bg-[#000000]/80 text-[#A1A1AA] hover:border-[#00FF9D] hover:bg-[#00FF9D] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold backdrop-blur-sm"
+            className="px-3 py-1.5 border border-[#27272A] bg-[#000000]/80 text-[#A1A1AA] hover:border-[#C8A27A] hover:bg-[#C8A27A] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold backdrop-blur-sm"
           >
-            <GitBranch className="w-3.5 h-3.5 text-[#00FF9D]" />
+            <GitBranch className="w-3.5 h-3.5 text-[#C8A27A]" />
             <span>[ GITHUB ↗ ]</span>
           </Link>
 
           <Link
             href={vaultUrl}
-            className="px-3.5 py-1.5 border border-[#00FF9D]/50 bg-[#00FF9D]/10 text-[#FFFFFF] hover:border-[#00FF9D] hover:bg-[#00FF9D] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold backdrop-blur-sm"
+            className="px-3.5 py-1.5 border border-[#C8A27A]/50 bg-[#C8A27A]/10 text-[#FFFFFF] hover:border-[#C8A27A] hover:bg-[#C8A27A] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold backdrop-blur-sm"
           >
-            <Box className="w-3.5 h-3.5 text-[#00FF9D]" />
+            <Box className="w-3.5 h-3.5 text-[#C8A27A]" />
             <span>[ VAULT CAD ↗ ]</span>
           </Link>
         </div>

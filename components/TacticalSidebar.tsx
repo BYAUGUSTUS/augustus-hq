@@ -118,7 +118,7 @@ export default function TacticalSidebar() {
                 width: isActive ? 28 : isHovered ? 22 : 14,
                 height: isActive ? 2.5 : 1.5,
                 backgroundColor: isActive
-                  ? "#00FF9D"
+                  ? "#C8A27A"
                   : isHovered
                   ? "#FFFFFF"
                   : "#3F3F46",

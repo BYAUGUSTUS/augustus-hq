@@ -27,8 +27,8 @@ export default function MobileSchematicView({
       
       {/* Top HUD Spec */}
       <div className="w-full flex flex-col items-start border-b border-[#27272A] pb-3 z-10">
-        <div className="flex items-center gap-2 text-[10px] text-[#00FF9D] tracking-widest font-bold uppercase mb-1">
-          <span className="w-2 h-2 rounded-full bg-[#00FF9D] animate-pulse" />
+        <div className="flex items-center gap-2 text-[10px] text-[#C8A27A] tracking-widest font-bold uppercase mb-1">
+          <span className="w-2 h-2 rounded-full bg-[#C8A27A] animate-pulse" />
           <span>{category}</span>
         </div>
         <h3 className="text-xl font-extrabold text-[#FFFFFF] font-sans tracking-tight uppercase">
@@ -46,7 +46,7 @@ export default function MobileSchematicView({
         <div 
           className="absolute inset-0 pointer-events-none opacity-20"
           style={{
-            backgroundImage: "linear-gradient(to right, #00FF9D 1px, transparent 1px), linear-gradient(to bottom, #00FF9D 1px, transparent 1px)",
+            backgroundImage: "linear-gradient(to right, #C8A27A 1px, transparent 1px), linear-gradient(to bottom, #C8A27A 1px, transparent 1px)",
             backgroundSize: "24px 24px"
           }}
         />
@@ -75,7 +75,7 @@ export default function MobileSchematicView({
       <div className="w-full flex flex-col gap-3 z-10 border-t border-[#27272A] pt-3">
         <div className="flex items-center justify-between text-[10px] text-[#71717A]">
           <span>{specLabel}: <strong className="text-[#FFFFFF]">{specValue}</strong></span>
-          <span className="text-[#00FF9D]">[VERIFIED CAD]</span>
+          <span className="text-[#C8A27A]">[VERIFIED CAD]</span>
         </div>
 
         <div className="grid grid-cols-3 gap-2 w-full">
@@ -85,7 +85,7 @@ export default function MobileSchematicView({
             rel="noopener noreferrer"
             className="py-2 px-1 border border-[#27272A] bg-[#050505] text-[#A1A1AA] hover:text-[#FFFFFF] flex items-center justify-center gap-1 text-[10px] font-bold"
           >
-            <BookOpen className="w-3 h-3 text-[#00FF9D]" />
+            <BookOpen className="w-3 h-3 text-[#C8A27A]" />
             <span>[ DOCS ]</span>
           </Link>
           <Link
@@ -94,14 +94,14 @@ export default function MobileSchematicView({
             rel="noopener noreferrer"
             className="py-2 px-1 border border-[#27272A] bg-[#050505] text-[#A1A1AA] hover:text-[#FFFFFF] flex items-center justify-center gap-1 text-[10px] font-bold"
           >
-            <GitBranch className="w-3 h-3 text-[#00FF9D]" />
+            <GitBranch className="w-3 h-3 text-[#C8A27A]" />
             <span>[ GITHUB ]</span>
           </Link>
           <Link
             href="#slide-mosaic"
-            className="py-2 px-1 border border-[#00FF9D]/40 bg-[#00FF9D]/10 text-[#00FF9D] flex items-center justify-center gap-1 text-[10px] font-bold"
+            className="py-2 px-1 border border-[#C8A27A]/40 bg-[#C8A27A]/10 text-[#C8A27A] flex items-center justify-center gap-1 text-[10px] font-bold"
           >
-            <Box className="w-3 h-3 text-[#00FF9D]" />
+            <Box className="w-3 h-3 text-[#C8A27A]" />
             <span>[ VAULT ]</span>
           </Link>
         </div>

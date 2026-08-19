@@ -61,7 +61,7 @@ export default function Footer() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-2.5 py-1.5 sm:py-1 border border-[#27272A] sm:border-transparent bg-[#050505] sm:bg-transparent text-[#A1A1AA] hover:border-[#00FF9D] hover:bg-[#00FF9D] hover:text-[#000000] transition-all duration-150 flex items-center justify-center gap-1 group text-[10px] sm:text-xs font-bold"
+              className="px-2.5 py-1.5 sm:py-1 border border-[#27272A] sm:border-transparent bg-[#050505] sm:bg-transparent text-[#A1A1AA] hover:border-[#C8A27A] hover:bg-[#C8A27A] hover:text-[#000000] transition-all duration-150 flex items-center justify-center gap-1 group text-[10px] sm:text-xs font-bold"
             >
               <span>{link.label}</span>
               <ArrowUpRight className="w-3 h-3 text-[#71717A] group-hover:text-[#000000] transition-colors" />

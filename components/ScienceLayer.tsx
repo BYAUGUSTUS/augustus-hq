@@ -23,7 +23,7 @@ export default function ScienceLayer() {
         {EQUATION_TRACKS.map((track, i) => (
           <motion.div
             key={i}
-            className="whitespace-nowrap text-xs sm:text-sm tracking-widest text-[#00FF9D]/60 flex gap-12 font-mono"
+            className="whitespace-nowrap text-xs sm:text-sm tracking-widest text-[#C8A27A]/60 flex gap-12 font-mono"
             animate={{ x: ["-50%", "0%"] }}
             transition={{
               repeat: Infinity,
@@ -87,7 +87,7 @@ export default function ScienceLayer() {
             href="/research_paper.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2.5 border border-[#00FF9D] bg-[#00FF9D] text-[#000000] hover:bg-transparent hover:text-[#00FF9D] transition-all flex items-center justify-center gap-2 text-xs uppercase font-bold tracking-wider"
+            className="px-5 py-2.5 border border-[#C8A27A] bg-[#C8A27A] text-[#000000] hover:bg-transparent hover:text-[#C8A27A] transition-all flex items-center justify-center gap-2 text-xs uppercase font-bold tracking-wider"
           >
             <ExternalLink className="w-3.5 h-3.5" />
             <span>[ OPEN FULL PAPER ↗ ]</span>
@@ -96,9 +96,9 @@ export default function ScienceLayer() {
           <a
             href="/research_paper.pdf"
             download="SonoAI_Bridge_Part_I_Research_Paper.pdf"
-            className="px-5 py-2.5 border border-[#27272A] bg-[#050505] text-[#A1A1AA] hover:border-[#00FF9D] hover:text-[#00FF9D] transition-all flex items-center justify-center gap-2 text-xs uppercase font-bold tracking-wider"
+            className="px-5 py-2.5 border border-[#27272A] bg-[#050505] text-[#A1A1AA] hover:border-[#C8A27A] hover:text-[#C8A27A] transition-all flex items-center justify-center gap-2 text-xs uppercase font-bold tracking-wider"
           >
-            <Download className="w-3.5 h-3.5 text-[#00FF9D]" />
+            <Download className="w-3.5 h-3.5 text-[#C8A27A]" />
             <span>[ DOWNLOAD PDF ]</span>
           </a>
         </div>

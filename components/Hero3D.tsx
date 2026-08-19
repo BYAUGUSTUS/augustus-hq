@@ -78,8 +78,8 @@ const STATIC_PARTICLE_POSITIONS = createDeterministicPointPositions(PARTICLE_COU
 function ModelLoadingIndicator() {
   return (
     <Html center>
-      <div className="flex flex-col items-center justify-center font-mono text-xs text-[#00FF9D] bg-[#000000]/90 p-4 border border-[#27272A] backdrop-blur-md">
-        <div className="w-4 h-4 border-2 border-[#00FF9D] border-t-transparent rounded-full animate-spin mb-2" />
+      <div className="flex flex-col items-center justify-center font-mono text-xs text-[#C8A27A] bg-[#000000]/90 p-4 border border-[#27272A] backdrop-blur-md">
+        <div className="w-4 h-4 border-2 border-[#C8A27A] border-t-transparent rounded-full animate-spin mb-2" />
         <span className="tracking-widest uppercase font-bold">LOADING RC18 CAD MESH</span>
       </div>
     </Html>
@@ -139,7 +139,7 @@ function ParticleStarfield() {
     <Points ref={particlesRef} positions={STATIC_PARTICLE_POSITIONS} stride={3}>
       <PointMaterial
         transparent
-        color="#00E5FF"
+        color="#E2C799"
         size={0.02}
         sizeAttenuation
         depthWrite={false}
@@ -181,7 +181,7 @@ export default function Hero3D() {
           
           <div className="max-w-2xl">
             <div className="flex items-center gap-2 text-xs mb-1.5">
-              <span className="text-[#00FF9D] font-bold tracking-widest uppercase">
+              <span className="text-[#C8A27A] font-bold tracking-widest uppercase">
                 [3D VIEWPORT // ACTIVE]
               </span>
             </div>
@@ -201,9 +201,9 @@ export default function Hero3D() {
               href="https://docs.byaugustus.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 border border-[#27272A] bg-[#000000]/80 text-[#A1A1AA] hover:border-[#00FF9D] hover:bg-[#00FF9D] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold backdrop-blur-sm"
+              className="px-3 py-1.5 border border-[#27272A] bg-[#000000]/80 text-[#A1A1AA] hover:border-[#C8A27A] hover:bg-[#C8A27A] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold backdrop-blur-sm"
             >
-              <BookOpen className="w-3.5 h-3.5 text-[#00FF9D]" />
+              <BookOpen className="w-3.5 h-3.5 text-[#C8A27A]" />
               <span>[ DOCS ↗ ]</span>
             </Link>
 
@@ -211,17 +211,17 @@ export default function Hero3D() {
               href="https://github.com/byaugustus"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 border border-[#27272A] bg-[#000000]/80 text-[#A1A1AA] hover:border-[#00FF9D] hover:bg-[#00FF9D] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold backdrop-blur-sm"
+              className="px-3 py-1.5 border border-[#27272A] bg-[#000000]/80 text-[#A1A1AA] hover:border-[#C8A27A] hover:bg-[#C8A27A] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold backdrop-blur-sm"
             >
-              <GitBranch className="w-3.5 h-3.5 text-[#00FF9D]" />
+              <GitBranch className="w-3.5 h-3.5 text-[#C8A27A]" />
               <span>[ GITHUB ↗ ]</span>
             </Link>
 
             <Link
               href="#slide-mosaic"
-              className="px-3.5 py-1.5 border border-[#00FF9D]/50 bg-[#00FF9D]/10 text-[#FFFFFF] hover:border-[#00FF9D] hover:bg-[#00FF9D] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold backdrop-blur-sm"
+              className="px-3.5 py-1.5 border border-[#C8A27A]/50 bg-[#C8A27A]/10 text-[#FFFFFF] hover:border-[#C8A27A] hover:bg-[#C8A27A] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold backdrop-blur-sm"
             >
-              <Box className="w-3.5 h-3.5 text-[#00FF9D]" />
+              <Box className="w-3.5 h-3.5 text-[#C8A27A]" />
               <span>[ VAULT CAD ↗ ]</span>
             </Link>
           </div>
@@ -258,7 +258,7 @@ export default function Hero3D() {
         
         <div className="max-w-xl">
           <div className="flex items-center gap-2 text-xs mb-1.5">
-            <span className="text-[#00FF9D] font-bold tracking-widest">[3D VIEWPORT // ACTIVE]</span>
+            <span className="text-[#C8A27A] font-bold tracking-widest">[3D VIEWPORT // ACTIVE]</span>
           </div>
 
           <h3 className="text-xl sm:text-2xl font-extrabold text-[#FFFFFF] font-sans tracking-tight uppercase">
@@ -276,9 +276,9 @@ export default function Hero3D() {
             href="https://docs.byaugustus.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 py-1.5 border border-[#27272A] bg-[#000000]/80 text-[#A1A1AA] hover:border-[#00FF9D] hover:bg-[#00FF9D] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold"
+            className="px-3 py-1.5 border border-[#27272A] bg-[#000000]/80 text-[#A1A1AA] hover:border-[#C8A27A] hover:bg-[#C8A27A] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold"
           >
-            <BookOpen className="w-3.5 h-3.5 text-[#00FF9D]" />
+            <BookOpen className="w-3.5 h-3.5 text-[#C8A27A]" />
             <span>[ DOCS ↗ ]</span>
           </Link>
 
@@ -286,17 +286,17 @@ export default function Hero3D() {
             href="https://github.com/byaugustus"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 py-1.5 border border-[#27272A] bg-[#000000]/80 text-[#A1A1AA] hover:border-[#00FF9D] hover:bg-[#00FF9D] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold"
+            className="px-3 py-1.5 border border-[#27272A] bg-[#000000]/80 text-[#A1A1AA] hover:border-[#C8A27A] hover:bg-[#C8A27A] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold"
           >
-            <GitBranch className="w-3.5 h-3.5 text-[#00FF9D]" />
+            <GitBranch className="w-3.5 h-3.5 text-[#C8A27A]" />
             <span>[ GITHUB ↗ ]</span>
           </Link>
 
           <Link
             href="#slide-mosaic"
-            className="px-3.5 py-1.5 border border-[#00FF9D]/50 bg-[#00FF9D]/10 text-[#FFFFFF] hover:border-[#00FF9D] hover:bg-[#00FF9D] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold"
+            className="px-3.5 py-1.5 border border-[#C8A27A]/50 bg-[#C8A27A]/10 text-[#FFFFFF] hover:border-[#C8A27A] hover:bg-[#C8A27A] hover:text-[#000000] transition-all flex items-center gap-1.5 text-xs uppercase font-bold"
           >
-            <Box className="w-3.5 h-3.5 text-[#00FF9D]" />
+            <Box className="w-3.5 h-3.5 text-[#C8A27A]" />
             <span>[ VAULT CAD ↗ ]</span>
           </Link>
         </div>
@@ -307,7 +307,7 @@ export default function Hero3D() {
       <div className="absolute bottom-8 right-6 sm:right-12 z-20 font-mono text-xs text-[#71717A] pointer-events-none text-right">
         <span>INTERACTION: ORBIT / TILT ENABLED</span>
         <br />
-        <span className="text-[#00E5FF]">ENGINE: THREE.JS + WEBGL</span>
+        <span className="text-[#E2C799]">ENGINE: THREE.JS + WEBGL</span>
       </div>
 
       {/* 3D Canvas */}
@@ -317,8 +317,8 @@ export default function Hero3D() {
       >
         <ambientLight intensity={0.9} />
         <directionalLight position={[12, 14, 10]} intensity={2.0} color="#FFFFFF" />
-        <directionalLight position={[-12, -6, -10]} intensity={1.2} color="#00E5FF" />
-        <pointLight position={[0, -3, 3]} intensity={1.5} color="#00FF9D" />
+        <directionalLight position={[-12, -6, -10]} intensity={1.2} color="#E2C799" />
+        <pointLight position={[0, -3, 3]} intensity={1.5} color="#C8A27A" />
 
         <ParticleStarfield />
 

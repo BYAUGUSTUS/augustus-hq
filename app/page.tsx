@@ -4,6 +4,7 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import ArchitectDossier from "@/components/ArchitectDossier";
+import RetroCassettePlayer from "@/components/RetroCassettePlayer";
 import ProjectExample from "@/components/ProjectExample";
 import ProjectExample01 from "@/components/ProjectExample01";
 import TemporalMosaic from "@/components/TemporalMosaic";
@@ -31,6 +32,8 @@ export default function HomePage() {
       {/* Minimalist Sidebar Navigator (Scroll-Spy) */}
       <TacticalSidebar />
 
+      <RetroCassettePlayer />
+
       {/* SLIDE 1: Hero Kinetic Headline */}
       <section id="slide-hero" className="snap-slide px-6 text-center z-10 pt-16">
         <span className="font-mono text-xs text-[#71717A] tracking-tactical uppercase mb-4">
@@ -52,13 +55,13 @@ export default function HomePage() {
             href="#slide-dossier"
             className="w-full sm:w-auto px-6 py-3 border border-[#27272A] text-[#FFFFFF] bg-[#000000]/60 backdrop-blur-sm hover:bg-[#FFFFFF] hover:text-[#000000] transition-colors text-center"
           >
-            [ EXPLORE THE VAULT ↗ ]
+            EXPLORE THE VAULT
           </Link>
           <Link
             href="#execution-log"
-            className="w-full sm:w-auto px-6 py-3 border border-[#27272A] text-[#FFFFFF] bg-[#000000]/60 backdrop-blur-sm hover:border-[#00FF9D] hover:text-[#00FF9D] transition-colors text-center"
+            className="w-full sm:w-auto px-6 py-3 border border-[#27272A] text-[#FFFFFF] bg-[#000000]/60 backdrop-blur-sm hover:border-[#C8A27A] hover:text-[#C8A27A] transition-colors text-center"
           >
-            [ VIEW EXECUTION LOG ]
+            VIEW EXECUTION LOG
           </Link>
         </div>
       </section>
