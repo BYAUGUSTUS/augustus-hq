@@ -240,7 +240,7 @@ export default function RARM() {
     <div className="w-full h-full min-h-screen relative flex items-center justify-center select-none bg-[#000000] border-y border-[#27272A] overflow-hidden">
       
       {/* TOP HUD */}
-      <div className="absolute top-20 sm:top-24 left-6 sm:left-12 right-6 sm:right-12 z-30 font-mono flex flex-col md:flex-row md:items-start justify-between gap-4 pointer-events-none">
+      <div className="absolute top-24 sm:top-28 left-6 sm:left-12 right-6 sm:right-12 z-30 font-mono flex flex-col md:flex-row md:items-start justify-between gap-4 pointer-events-none">
         
         <div className="max-w-xl">
           <h3 className="text-xl sm:text-2xl font-extrabold text-[#FFFFFF] font-sans tracking-tight uppercase">

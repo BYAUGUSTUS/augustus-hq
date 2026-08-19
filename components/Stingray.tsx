@@ -178,7 +178,7 @@ export default function Stingray() {
       <div className="w-full h-full min-h-screen relative z-20 flex flex-col justify-center items-center px-4 sm:px-8 md:px-12 font-mono select-none border-y border-[#27272A] overflow-hidden">
         
         {/* TOP HUD: Info, Title, & Action Buttons */}
-        <div className="absolute top-16 sm:top-20 md:top-24 left-4 sm:left-8 md:left-12 right-4 sm:right-8 md:right-12 z-30 font-mono flex flex-col md:flex-row md:items-start justify-between gap-4 pointer-events-none">
+        <div className="absolute top-24 sm:top-28 left-6 sm:left-12 right-6 sm:right-12 z-30 font-mono flex flex-col md:flex-row md:items-start justify-between gap-4 pointer-events-none">
           
           <div className="max-w-2xl">
             <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#FFFFFF] font-sans tracking-tight uppercase">

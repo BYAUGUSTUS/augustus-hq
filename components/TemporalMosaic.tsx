@@ -26,20 +26,15 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
-// ==========================================
-// 1. MASTER UNIFIED COMPOSITE PHOTO (FACE 2)
-// ==========================================
 const MASTER_BIG_PHOTO = "/BY_Major.png";
 
 interface MosaicTileData {
   id: number;
-  row: number; // 0..3
-  col: number; // 0..3
-  // --- FACE 0: TECH STACK ---
+  row: number;
+  col: number;
   techName: string;
   techCategory: string;
   techIcon: typeof Terminal;
-  // --- FACE 1: DOMAINS (FROM INVENTORY) ---
   domainGroup: string;
   domainName: string;
   domainDetail: string;
@@ -248,11 +243,69 @@ const MOSAIC_TILES: MosaicTileData[] = [
   },
 ];
 
+// Top-to-bottom telemetry pill streams with alternating layered color palettes
+const LEFT_CAPSULES = [
+  { label: "C++20 // RTOS", bg: "bg-[#C8A27A]", text: "text-[#0C0A09]", arrowColor: "text-[#451A03]" },
+  { label: "INVERSE KINEMATICS", bg: "bg-[#1E1915]", text: "text-[#F5F0E6]", arrowColor: "text-[#C8A27A]" },
+  { label: "CAN 2.0B BUS", bg: "bg-[#8A6743]", text: "text-[#FFFFFF]", arrowColor: "text-[#F5F0E6]" },
+  { label: "CUDA PARALLEL", bg: "bg-[#2A231C]", text: "text-[#DFBA94]", arrowColor: "text-[#C8A27A]" },
+  { label: "BLDC FOC DRIVER", bg: "bg-[#C8A27A]", text: "text-[#0C0A09]", arrowColor: "text-[#451A03]" },
+  { label: "ROS 2 HUMBLE", bg: "bg-[#1E1915]", text: "text-[#F5F0E6]", arrowColor: "text-[#C8A27A]" },
+  { label: "SPATIAL OPENCV", bg: "bg-[#3D2E1E]", text: "text-[#F5F0E6]", arrowColor: "text-[#C8A27A]" },
+  { label: "PREEMPT-RT KERNEL", bg: "bg-[#C8A27A]", text: "text-[#0C0A09]", arrowColor: "text-[#451A03]" },
+  { label: "STM32F4 VECTOR", bg: "bg-[#1E1915]", text: "text-[#DFBA94]", arrowColor: "text-[#C8A27A]" },
+  { label: "MICRO-ROS BRIDGE", bg: "bg-[#8A6743]", text: "text-[#FFFFFF]", arrowColor: "text-[#F5F0E6]" },
+  { label: "LiDAR POINTCLOUD", bg: "bg-[#2A231C]", text: "text-[#F5F0E6]", arrowColor: "text-[#C8A27A]" },
+  { label: "D-H PARAMETERS", bg: "bg-[#C8A27A]", text: "text-[#0C0A09]", arrowColor: "text-[#451A03]" },
+  { label: "ZERO-ALLOC HEAP", bg: "bg-[#1E1915]", text: "text-[#F5F0E6]", arrowColor: "text-[#C8A27A]" },
+  { label: "TORQUE VECTORING", bg: "bg-[#1E1915]", text: "text-[#F5F0E6]", arrowColor: "text-[#C8A27A]" },
+  { label: "QUATERNION SLAM", bg: "bg-[#C8A27A]", text: "text-[#0C0A09]", arrowColor: "text-[#451A03]" },
+  { label: "HARMONIC REDUCER", bg: "bg-[#8A6743]", text: "text-[#FFFFFF]", arrowColor: "text-[#F5F0E6]" },
+  { label: "PYTORCH EMBEDDED", bg: "bg-[#2A231C]", text: "text-[#DFBA94]", arrowColor: "text-[#C8A27A]" },
+  { label: "KALMAN SENSOR FUSION", bg: "bg-[#C8A27A]", text: "text-[#0C0A09]", arrowColor: "text-[#451A03]" },
+  { label: "EDGE NEURAL ENGINE", bg: "bg-[#1E1915]", text: "text-[#F5F0E6]", arrowColor: "text-[#C8A27A]" },
+  { label: "FINITE STATE RTOS", bg: "bg-[#3D2E1E]", text: "text-[#F5F0E6]", arrowColor: "text-[#C8A27A]" },
+  { label: "COMPLIANT ACTUATION", bg: "bg-[#C8A27A]", text: "text-[#0C0A09]", arrowColor: "text-[#451A03]" },
+  { label: "HIGH-SPEED UART", bg: "bg-[#8A6743]", text: "text-[#FFFFFF]", arrowColor: "text-[#F5F0E6]" },
+  { label: "GAZEBO PHYSICS", bg: "bg-[#1E1915]", text: "text-[#DFBA94]", arrowColor: "text-[#C8A27A]" },
+  { label: "DIFF DRIVE ODOMETRY", bg: "bg-[#2A231C]", text: "text-[#F5F0E6]", arrowColor: "text-[#C8A27A]" },
+  { label: "6-AXIS IMU FILTER", bg: "bg-[#C8A27A]", text: "text-[#0C0A09]", arrowColor: "text-[#451A03]" },
+  { label: "CUSTOM BLDC STATOR", bg: "bg-[#1E1915]", text: "text-[#F5F0E6]", arrowColor: "text-[#C8A27A]" },
+];
+
+const RIGHT_CAPSULES = [
+  { label: "TORQUE VECTORING", bg: "bg-[#1E1915]", text: "text-[#F5F0E6]", arrowColor: "text-[#C8A27A]" },
+  { label: "QUATERNION SLAM", bg: "bg-[#C8A27A]", text: "text-[#0C0A09]", arrowColor: "text-[#451A03]" },
+  { label: "HARMONIC REDUCER", bg: "bg-[#8A6743]", text: "text-[#FFFFFF]", arrowColor: "text-[#F5F0E6]" },
+  { label: "PYTORCH EMBEDDED", bg: "bg-[#2A231C]", text: "text-[#DFBA94]", arrowColor: "text-[#C8A27A]" },
+  { label: "KALMAN SENSOR FUSION", bg: "bg-[#C8A27A]", text: "text-[#0C0A09]", arrowColor: "text-[#451A03]" },
+  { label: "EDGE NEURAL ENGINE", bg: "bg-[#1E1915]", text: "text-[#F5F0E6]", arrowColor: "text-[#C8A27A]" },
+  { label: "FINITE STATE RTOS", bg: "bg-[#3D2E1E]", text: "text-[#F5F0E6]", arrowColor: "text-[#C8A27A]" },
+  { label: "COMPLIANT ACTUATION", bg: "bg-[#C8A27A]", text: "text-[#0C0A09]", arrowColor: "text-[#451A03]" },
+  { label: "HIGH-SPEED UART", bg: "bg-[#8A6743]", text: "text-[#FFFFFF]", arrowColor: "text-[#F5F0E6]" },
+  { label: "GAZEBO PHYSICS", bg: "bg-[#1E1915]", text: "text-[#DFBA94]", arrowColor: "text-[#C8A27A]" },
+  { label: "DIFF DRIVE ODOMETRY", bg: "bg-[#2A231C]", text: "text-[#F5F0E6]", arrowColor: "text-[#C8A27A]" },
+  { label: "6-AXIS IMU FILTER", bg: "bg-[#C8A27A]", text: "text-[#0C0A09]", arrowColor: "text-[#451A03]" },
+  { label: "CUSTOM BLDC STATOR", bg: "bg-[#1E1915]", text: "text-[#F5F0E6]", arrowColor: "text-[#C8A27A]" },
+  { label: "C++20 // RTOS", bg: "bg-[#C8A27A]", text: "text-[#0C0A09]", arrowColor: "text-[#451A03]" },
+  { label: "INVERSE KINEMATICS", bg: "bg-[#1E1915]", text: "text-[#F5F0E6]", arrowColor: "text-[#C8A27A]" },
+  { label: "CAN 2.0B BUS", bg: "bg-[#8A6743]", text: "text-[#FFFFFF]", arrowColor: "text-[#F5F0E6]" },
+  { label: "CUDA PARALLEL", bg: "bg-[#2A231C]", text: "text-[#DFBA94]", arrowColor: "text-[#C8A27A]" },
+  { label: "BLDC FOC DRIVER", bg: "bg-[#C8A27A]", text: "text-[#0C0A09]", arrowColor: "text-[#451A03]" },
+  { label: "ROS 2 HUMBLE", bg: "bg-[#1E1915]", text: "text-[#F5F0E6]", arrowColor: "text-[#C8A27A]" },
+  { label: "SPATIAL OPENCV", bg: "bg-[#3D2E1E]", text: "text-[#F5F0E6]", arrowColor: "text-[#C8A27A]" },
+  { label: "PREEMPT-RT KERNEL", bg: "bg-[#C8A27A]", text: "text-[#0C0A09]", arrowColor: "text-[#451A03]" },
+  { label: "STM32F4 VECTOR", bg: "bg-[#1E1915]", text: "text-[#DFBA94]", arrowColor: "text-[#C8A27A]" },
+  { label: "MICRO-ROS BRIDGE", bg: "bg-[#8A6743]", text: "text-[#FFFFFF]", arrowColor: "text-[#F5F0E6]" },
+  { label: "LiDAR POINTCLOUD", bg: "bg-[#2A231C]", text: "text-[#F5F0E6]", arrowColor: "text-[#C8A27A]" },
+  { label: "D-H PARAMETERS", bg: "bg-[#C8A27A]", text: "text-[#0C0A09]", arrowColor: "text-[#451A03]" },
+  { label: "ZERO-ALLOC HEAP", bg: "bg-[#1E1915]", text: "text-[#F5F0E6]", arrowColor: "text-[#C8A27A]" },
+];
+
 export default function TemporalMosaic() {
   const [activeFace, setActiveFace] = useState<number>(0);
   const [cycleIndex, setCycleIndex] = useState<number>(1);
 
-  // Turn right continuously every 5 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveFace((prev) => (prev + 1) % 3);
@@ -263,10 +316,60 @@ export default function TemporalMosaic() {
   }, []);
 
   return (
-    <section className="w-full h-full min-h-screen bg-[#000000] relative z-20 flex flex-col justify-between items-center px-3 sm:px-6 md:px-8 py-14 sm:py-16 md:py-20 font-mono select-none border-y border-[#27272A] overflow-hidden">
+    <section className="w-full h-full min-h-screen bg-[#000000] relative z-20 flex flex-col justify-between items-center px-3 sm:px-6 md:px-8 pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24 font-mono select-none border-y border-[#27272A] overflow-hidden">
       
+      {/* ========================================================
+          BACKGROUND LAYER: FULL VERTICAL RESONATING PILL ARRAYS
+      ======================================================== */}
+      
+      {/* Left Wing Pill Stream (Spans full height from top to bottom) */}
+      <div className="absolute left-0 top-4 bottom-4 w-[25vw] max-w-[360px] pointer-events-none hidden xl:flex flex-col justify-between pl-3 z-0 opacity-85">
+        {LEFT_CAPSULES.map((item, idx) => (
+          <motion.div
+            key={`left-${idx}`}
+            animate={{
+              rotate: [0, 4.5, 0, -4.5, 0],
+              y: [0, -3.5, 0, 3.5, 0],
+            }}
+            transition={{
+              duration: 4.2 + (idx % 4) * 0.6,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: idx * 0.22,
+            }}
+            style={{ transformOrigin: "left center" }}
+            className={`flex items-center gap-2 whitespace-nowrap text-xs sm:text-[13px] font-black tracking-wider py-1 px-3.5 rounded-full shadow-[0_6px_20px_rgba(0,0,0,0.8)] border border-[#DFBA94]/20 w-fit ${item.bg}`}
+          >
+            <span className={item.text}>{item.label}</span>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Right Wing Pill Stream (Spans full height from top to bottom) */}
+      <div className="absolute right-0 top-4 bottom-4 w-[25vw] max-w-[360px] pointer-events-none hidden xl:flex flex-col justify-between items-end pr-3 z-0 opacity-85">
+        {RIGHT_CAPSULES.map((item, idx) => (
+          <motion.div
+            key={`right-${idx}`}
+            animate={{
+              rotate: [0, -4.5, 0, 4.5, 0],
+              y: [0, 3.5, 0, -3.5, 0],
+            }}
+            transition={{
+              duration: 4.5 + (idx % 4) * 0.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: idx * 0.25,
+            }}
+            style={{ transformOrigin: "right center" }}
+            className={`flex items-center gap-2 whitespace-nowrap text-xs sm:text-[13px] font-black tracking-wider py-1 px-3.5 rounded-full shadow-[0_6px_20px_rgba(0,0,0,0.8)] border border-[#DFBA94]/20 w-fit ${item.bg}`}
+          >
+            <span className={item.text}>{item.label}</span>
+          </motion.div>
+        ))}
+      </div>
+
       {/* Top Header HUD */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-[#27272A] pb-2 sm:pb-3 mb-2 sm:mb-4 max-w-[1000px] mx-auto w-full gap-2 shrink-0">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-[#27272A] pb-2 sm:pb-3 mb-2 sm:mb-4 max-w-[1000px] mx-auto w-full gap-2 shrink-0 relative z-10">
         <div className="flex items-center gap-2 sm:gap-3">
           <span className="text-[10px] sm:text-xs text-[#F8F9FA] tracking-widest uppercase font-bold">
             TEMPORAL MOSAIC // 4×4 ARRAY
@@ -290,7 +393,7 @@ export default function TemporalMosaic() {
               onClick={() => setActiveFace(1)}
               className={`px-2 py-0.5 sm:px-3 sm:py-1 border text-[9px] sm:text-xs uppercase transition-colors font-bold ${
                 activeFace === 1
-                  ? "border-[#00E5FF] text-[#00E5FF] bg-[#00E5FF]/10"
+                  ? "border-[#C8A27A] text-[#C8A27A] bg-[#C8A27A]/10"
                   : "border-[#27272A] text-[#71717A] hover:text-[#F8F9FA]"
               }`}
             >
@@ -311,7 +414,7 @@ export default function TemporalMosaic() {
       </div>
 
       {/* 4x4 Grid Matrix Viewport */}
-      <div className="grid grid-cols-4 gap-1.5 sm:gap-2.5 md:gap-3 w-full max-w-[420px] sm:max-w-[620px] md:max-w-[760px] lg:max-w-[860px] aspect-square mx-auto p-1.5 sm:p-3 border border-[#27272A] bg-[#000000] my-auto">
+      <div className="grid grid-cols-4 gap-1.5 sm:gap-2.5 md:gap-3 w-full max-w-[420px] sm:max-w-[620px] md:max-w-[760px] lg:max-w-[860px] aspect-square mx-auto p-1.5 sm:p-3 border border-[#27272A] bg-[#000000] my-auto relative z-10 shadow-[0_0_50px_rgba(0,0,0,0.9)]">
         {MOSAIC_TILES.map((tile) => {
           const TechIcon = tile.techIcon;
           const DomainIcon = tile.domainIcon;
@@ -326,9 +429,7 @@ export default function TemporalMosaic() {
                 animate={{ rotateY: activeFace * -90 }}
                 transition={{ duration: 0.85, ease: [0.2, 0.8, 0.2, 1] }}
               >
-                {/* ====================================================
-                    FACE 0: TECH STACK (LARGE LABELS)
-                ==================================================== */}
+                {/* FACE 0: TECH STACK */}
                 <div
                   className="absolute inset-0 w-full h-full [backface-visibility:hidden] p-1.5 sm:p-2.5 md:p-3 flex flex-col justify-between border border-[#C8A27A]/20 bg-[#000000]"
                   style={{ transform: "rotateY(0deg) translateZ(1px)" }}
@@ -352,18 +453,16 @@ export default function TemporalMosaic() {
                   </div>
                 </div>
 
-                {/* ====================================================
-                    FACE 1: DOMAINS (FROM INVENTORY)
-                ==================================================== */}
+                {/* FACE 1: DOMAINS */}
                 <div
-                  className="absolute inset-0 w-full h-full [backface-visibility:hidden] p-1.5 sm:p-2.5 md:p-3 flex flex-col justify-between border border-[#00E5FF]/20 bg-[#02050A]"
+                  className="absolute inset-0 w-full h-full [backface-visibility:hidden] p-1.5 sm:p-2.5 md:p-3 flex flex-col justify-between border border-[#C8A27A]/30 bg-[#060504]"
                   style={{ transform: "rotateY(90deg) translateZ(1px)" }}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-[7px] sm:text-[9px] md:text-[10px] text-[#00E5FF] font-bold truncate">
+                    <span className="text-[7px] sm:text-[9px] md:text-[10px] text-[#C8A27A] font-bold truncate">
                       [{tile.domainGroup}]
                     </span>
-                    <DomainIcon className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 text-[#71717A] group-hover:text-[#00E5FF] transition-colors shrink-0" />
+                    <DomainIcon className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 text-[#71717A] group-hover:text-[#C8A27A] transition-colors shrink-0" />
                   </div>
 
                   <div className="my-auto">
@@ -372,14 +471,12 @@ export default function TemporalMosaic() {
                     </div>
                   </div>
 
-                  <div className="text-[6px] sm:text-[8px] md:text-[9px] text-[#00E5FF]/80 border-t border-[#27272A] pt-0.5 truncate">
+                  <div className="text-[6px] sm:text-[8px] md:text-[9px] text-[#C8A27A]/80 border-t border-[#27272A] pt-0.5 truncate">
                     {tile.domainDetail}
                   </div>
                 </div>
 
-                {/* ====================================================
-                    FACE 2: UNIFIED COMPOSITE LOGO EMBLEM
-                ==================================================== */}
+                {/* FACE 2: UNIFIED COMPOSITE LOGO EMBLEM */}
                 <div
                   className="absolute inset-0 w-full h-full [backface-visibility:hidden] overflow-hidden"
                   style={{ transform: "rotateY(180deg) translateZ(1px)" }}
@@ -412,7 +509,7 @@ export default function TemporalMosaic() {
       </div>
 
       {/* Footer Telemetry */}
-      <div className="mt-2 px-3 py-1 border border-[#27272A] bg-[#000000] flex items-center justify-between text-[8px] sm:text-[10px] md:text-xs text-[#71717A] max-w-[1000px] mx-auto w-full shrink-0">
+      <div className="mt-2 px-3 py-1 border border-[#27272A] bg-[#000000] flex items-center justify-between text-[8px] sm:text-[10px] md:text-xs text-[#71717A] max-w-[1000px] mx-auto w-full shrink-0 relative z-10">
         <span className="truncate">
           ACTIVE FEED:{" "}
           <strong className="text-[#FFFFFF]">
