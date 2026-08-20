@@ -2,6 +2,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   Play, 
   Pause, 
@@ -219,165 +220,190 @@ export default function RetroCassettePlayer() {
           isFooterVisible ? "bottom-24" : "bottom-2 sm:bottom-3"
         }`}
       >
-        {/* Collapsed State Toggle Button (Centered at bottom) */}
-        {!isOpen && (
-          <div className="max-w-6xl mx-auto flex justify-center pointer-events-auto">
-            <button
-              onClick={() => setIsOpen(true)}
-              className="px-3 py-1 bg-[#09090b]/80 backdrop-blur-md text-[10px] text-[#A1A1AA] hover:text-[#00FF9D] uppercase flex items-center gap-1.5 transition-colors cursor-pointer"
+        <AnimatePresence mode="wait">
+          {/* Collapsed State Toggle Pill */}
+          {!isOpen && (
+            <motion.div 
+              key="collapsed-pill"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 15 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="max-w-6xl mx-auto flex justify-center pointer-events-auto"
             >
-              <Radio className="w-3 h-3 text-[#C8A27A]" />
-              <span>[ CASSETTE DECK // {isPlaying ? "PLAYING" : "STANDBY"} ]</span>
-              <ChevronUp className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        )}
-
-        {isOpen && (
-          <div className="max-w-6xl mx-auto flex flex-col items-center pointer-events-auto">
-            
-            {/* Centered Toggle Tab Directly Above Cassette */}
-            <div className="w-full flex justify-center mb-1">
               <button
-                onClick={() => setIsOpen(false)}
-                className="px-3 py-1 bg-[#09090b]/80 backdrop-blur-md text-[10px] text-[#A1A1AA] hover:text-[#00FF9D] uppercase flex items-center gap-1.5 transition-colors cursor-pointer"
+                onClick={() => setIsOpen(true)}
+                className="px-3 py-1 bg-[#09090b]/90 backdrop-blur-md border border-[#3F3F46]/50 text-[10px] text-[#A1A1AA] hover:text-[#C8A27A] uppercase flex items-center gap-1.5 transition-colors cursor-pointer rounded-full shadow-lg"
               >
                 <Radio className="w-3 h-3 text-[#C8A27A]" />
-                <span>[ CASSETTE DECK // {isPlaying ? "PLAYING" : "STANDBY"} ]</span>
-                <ChevronDown className="w-3.5 h-3.5" />
+                <span>CASSETTE DECK // {isPlaying ? "PLAYING" : "STANDBY"}</span>
+                <ChevronUp className="w-3.5 h-3.5" />
               </button>
-            </div>
+            </motion.div>
+          )}
 
-            {/* Middle Row: Left Visualizer + Realistic Camel Cassette + Right Visualizer */}
-            <div className="w-full flex items-center justify-between gap-3 sm:gap-6">
+          {/* Expanded Cassette Deck */}
+          {isOpen && (
+            <motion.div
+              key="expanded-deck"
+              initial={{ opacity: 0, y: 25, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 25, scale: 0.96 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="max-w-6xl mx-auto flex flex-col items-center pointer-events-auto"
+            >
               
-              {/* Left Audio Visualizer */}
-              <div className="flex-1 flex items-center justify-end gap-1 sm:gap-1.5 h-16 sm:h-20 opacity-70">
-                {activeVu.map((lvl, idx) => {
-                  const edgeFactor = 0.5 + ((BAR_COUNT - idx) / BAR_COUNT) * 0.7;
-                  const finalHeight = Math.min(100, lvl * edgeFactor);
-                  return (
-                    <div
-                      key={`left-bar-${idx}`}
-                      className="w-1 sm:w-1.5 bg-[#52525B] rounded-full transition-all duration-150 ease-out"
-                      style={{ height: `${finalHeight}%` }}
-                    />
-                  );
-                })}
+              {/* Centered Toggle Tab Directly Above Cassette */}
+              <div className="w-full flex justify-center mb-1">
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="px-3 py-1 bg-[#09090b]/80 backdrop-blur-md text-[10px] text-[#A1A1AA] hover:text-[#C8A27A] uppercase flex items-center gap-1.5 transition-colors cursor-pointer"
+                >
+                  <Radio className="w-3 h-3 text-[#C8A27A]" />
+                  <span>CASSETTE DECK // {isPlaying ? "PLAYING" : "STANDBY"}</span>
+                  <ChevronDown className="w-3.5 h-3.5" />
+                </button>
               </div>
 
-              {/* Realistic Camel Vintage Cassette Body */}
-              <div className="w-[280px] sm:w-[360px] h-[135px] sm:h-[155px] bg-[#C8A27A] rounded-xl p-2 sm:p-2.5 shadow-[0_12px_40px_rgba(0,0,0,0.85)] relative flex flex-col justify-between overflow-hidden border-t border-[#DFBA94]/60 border-b border-[#9C7550] shrink-0">
+              {/* Middle Row: Left Visualizer + Realistic Camel Cassette + Right Visualizer */}
+              <div className="w-full flex items-center justify-between gap-3 sm:gap-6">
                 
-                {/* 4 Corner Screws */}
-                <div className="absolute top-1.5 left-1.5 w-2 h-2 rounded-full bg-[#8A6743] border border-[#5E4024] flex items-center justify-center">
-                  <div className="w-1.5 h-[1px] bg-[#3B2816]" />
-                </div>
-                <div className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#8A6743] border border-[#5E4024] flex items-center justify-center">
-                  <div className="w-1.5 h-[1px] bg-[#3B2816]" />
-                </div>
-                <div className="absolute bottom-1.5 left-1.5 w-2 h-2 rounded-full bg-[#8A6743] border border-[#5E4024] flex items-center justify-center">
-                  <div className="w-1.5 h-[1px] bg-[#3B2816]" />
-                </div>
-                <div className="absolute bottom-1.5 right-1.5 w-2 h-2 rounded-full bg-[#8A6743] border border-[#5E4024] flex items-center justify-center">
-                  <div className="w-1.5 h-[1px] bg-[#3B2816]" />
-                </div>
-
-                {/* Cassette Label Header */}
-                <div className="bg-[#EFE6D5] rounded-t-sm px-2 py-1 flex items-center justify-between border-b-2 border-[#D4713B] shadow-inner">
-                  <div className="text-[10px] sm:text-[11px] font-bold text-[#1C1917] tracking-wider truncate uppercase w-full">
-                    {trackTitle}
-                  </div>
+                {/* Left Audio Visualizer */}
+                <div className="flex-1 flex items-center justify-end gap-1 sm:gap-1.5 h-16 sm:h-20 opacity-70">
+                  {activeVu.map((lvl, idx) => {
+                    const edgeFactor = 0.5 + ((BAR_COUNT - idx) / BAR_COUNT) * 0.7;
+                    const finalHeight = Math.min(100, lvl * edgeFactor);
+                    return (
+                      <div
+                        key={`left-bar-${idx}`}
+                        className="w-1 sm:w-1.5 bg-[#52525B] rounded-full transition-all duration-150 ease-out"
+                        style={{ height: `${finalHeight}%` }}
+                      />
+                    );
+                  })}
                 </div>
 
-                {/* Center Cassette Well Window & Tape Spools */}
-                <div className="bg-[#1C1917] rounded-md p-1.5 my-auto mx-1 flex items-center justify-between relative border border-[#141210] shadow-[inset_0_2px_8px_rgba(0,0,0,0.8)]">
+                {/* Realistic Camel Vintage Cassette Body */}
+                <div className="w-[280px] sm:w-[360px] h-[135px] sm:h-[155px] bg-[#C8A27A] rounded-xl p-2 sm:p-2.5 shadow-[0_12px_40px_rgba(0,0,0,0.85)] relative flex flex-col justify-between overflow-hidden border-t border-[#DFBA94]/60 border-b border-[#9C7550] shrink-0">
                   
-                  {/* Left Cog Reel */}
-                  <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#F5F5F4] border-2 border-[#A8A29E] flex items-center justify-center shadow-md ${isPlaying ? "animate-spin" : ""}`}>
-                    <div className="w-4 h-4 rounded-full bg-[#1C1917] border-2 border-dashed border-[#78716C]" />
+                  {/* 4 Corner Screws */}
+                  <div className="absolute top-1.5 left-1.5 w-2 h-2 rounded-full bg-[#8A6743] border border-[#5E4024] flex items-center justify-center">
+                    <div className="w-1.5 h-[1px] bg-[#3B2816]" />
+                  </div>
+                  <div className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#8A6743] border border-[#5E4024] flex items-center justify-center">
+                    <div className="w-1.5 h-[1px] bg-[#3B2816]" />
+                  </div>
+                  <div className="absolute bottom-1.5 left-1.5 w-2 h-2 rounded-full bg-[#8A6743] border border-[#5E4024] flex items-center justify-center">
+                    <div className="w-1.5 h-[1px] bg-[#3B2816]" />
+                  </div>
+                  <div className="absolute bottom-1.5 right-1.5 w-2 h-2 rounded-full bg-[#8A6743] border border-[#5E4024] flex items-center justify-center">
+                    <div className="w-1.5 h-[1px] bg-[#3B2816]" />
                   </div>
 
-                  {/* Tape Window with Magnetic Ribbon */}
-                  <div className="flex-1 mx-2 h-6 sm:h-7 bg-[#292524]/90 rounded-sm border border-[#44403C] relative overflow-hidden flex items-center justify-center">
-                    <div className="absolute inset-x-2 h-2.5 bg-[#451A03]/80 rounded-xs" />
-                    <div className="z-10 text-[8px] text-[#A8A29E] font-bold tracking-widest opacity-60">
-                      ||||||||||||
+                  {/* Cassette Label Header */}
+                  <div className="bg-[#EFE6D5] rounded-t-sm px-2 py-1 flex items-center justify-between border-b-2 border-[#D4713B] shadow-inner">
+                    <div className="text-[10px] sm:text-[11px] font-bold text-[#1C1917] tracking-wider truncate uppercase w-full">
+                      {trackTitle}
                     </div>
                   </div>
 
-                  {/* Right Cog Reel */}
-                  <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#F5F5F4] border-2 border-[#A8A29E] flex items-center justify-center shadow-md ${isPlaying ? "animate-spin" : ""}`}>
-                    <div className="w-4 h-4 rounded-full bg-[#1C1917] border-2 border-dashed border-[#78716C]" />
+                  {/* Center Cassette Well Window & Tape Spools */}
+                  <div className="bg-[#1C1917] rounded-md p-1.5 my-auto mx-1 flex items-center justify-between relative border border-[#141210] shadow-[inset_0_2px_8px_rgba(0,0,0,0.8)]">
+                    
+                    {/* Left Cog Reel */}
+                    <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#F5F5F4] border-2 border-[#A8A29E] flex items-center justify-center shadow-md ${isPlaying ? "animate-spin" : ""}`}>
+                      <div className="w-4 h-4 rounded-full bg-[#1C1917] border-2 border-dashed border-[#78716C]" />
+                    </div>
+
+                    {/* Tape Window with Magnetic Ribbon */}
+                    <div className="flex-1 mx-2 h-6 sm:h-7 bg-[#292524]/90 rounded-sm border border-[#44403C] relative overflow-hidden flex items-center justify-center">
+                      <div className="absolute inset-x-2 h-2.5 bg-[#451A03]/80 rounded-xs" />
+                      <div className="z-10 text-[8px] text-[#A8A29E] font-bold tracking-widest opacity-60">
+                        ||||||||||||
+                      </div>
+                    </div>
+
+                    {/* Right Cog Reel */}
+                    <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#F5F5F4] border-2 border-[#A8A29E] flex items-center justify-center shadow-md ${isPlaying ? "animate-spin" : ""}`}>
+                      <div className="w-4 h-4 rounded-full bg-[#1C1917] border-2 border-dashed border-[#78716C]" />
+                    </div>
                   </div>
+
+                  {/* Bottom Trapezoid Cutout Detail */}
+                  <div className="w-24 sm:w-28 h-2.5 bg-[#9C7550] mx-auto rounded-t-sm" />
                 </div>
 
-                {/* Bottom Trapezoid Cutout Detail */}
-                <div className="w-24 sm:w-28 h-2.5 bg-[#9C7550] mx-auto rounded-t-sm" />
+                {/* Right Audio Visualizer */}
+                <div className="flex-1 flex items-center justify-start gap-1 sm:gap-1.5 h-16 sm:h-20 opacity-70">
+                  {activeVu.map((lvl, idx) => {
+                    const edgeFactor = 0.5 + (idx / BAR_COUNT) * 0.7;
+                    const finalHeight = Math.min(100, lvl * edgeFactor);
+                    return (
+                      <div
+                        key={`right-bar-${idx}`}
+                        className="w-1 sm:w-1.5 bg-[#52525B] rounded-full transition-all duration-150 ease-out"
+                        style={{ height: `${finalHeight}%` }}
+                      />
+                    );
+                  })}
+                </div>
+
               </div>
 
-              {/* Right Audio Visualizer */}
-              <div className="flex-1 flex items-center justify-start gap-1 sm:gap-1.5 h-16 sm:h-20 opacity-70">
-                {activeVu.map((lvl, idx) => {
-                  const edgeFactor = 0.5 + (idx / BAR_COUNT) * 0.7;
-                  const finalHeight = Math.min(100, lvl * edgeFactor);
-                  return (
-                    <div
-                      key={`right-bar-${idx}`}
-                      className="w-1 sm:w-1.5 bg-[#52525B] rounded-full transition-all duration-150 ease-out"
-                      style={{ height: `${finalHeight}%` }}
-                    />
-                  );
-                })}
+              {/* Bottom Control Bar: Symmetrical Playback Cluster (Centered to Cassette) + Floating Volume to the Right */}
+              <div className="w-[280px] sm:w-[360px] relative flex items-center justify-center mt-2.5">
+                
+                {/* Center 3-Button Transport Group (Dead centered with Play/Pause in middle) */}
+                <div className="flex items-center justify-center gap-7 sm:gap-9">
+                  <button
+                    onClick={prevTrack}
+                    className="text-[#71717A] hover:text-[#FFFFFF] transition-all transform hover:scale-110 active:scale-95 cursor-pointer flex items-center"
+                    title="Previous Track"
+                  >
+                    <SkipBack className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+                  </button>
+
+                  <button
+                    onClick={togglePlay}
+                    className="text-[#FFFFFF] hover:text-[#C8A27A] transition-all transform hover:scale-115 active:scale-95 cursor-pointer flex items-center"
+                    title="Play / Pause"
+                  >
+                    {isPlaying ? (
+                      <Pause className="w-5 h-5 sm:w-6 sm:h-6 text-[#C8A27A]" />
+                    ) : (
+                      <Play className="w-5 h-5 sm:w-6 sm:h-6" />
+                    )}
+                  </button>
+
+                  <button
+                    onClick={nextTrack}
+                    className="text-[#71717A] hover:text-[#FFFFFF] transition-all transform hover:scale-110 active:scale-95 cursor-pointer flex items-center"
+                    title="Next Track"
+                  >
+                    <SkipForward className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+                  </button>
+                </div>
+
+                {/* Right-aligned Volume/Mute Button (Floated to the right cursor slot) */}
+                <div className="absolute right-0 flex items-center">
+                  <button
+                    onClick={toggleMute}
+                    className="text-[#71717A] hover:text-[#FFFFFF] transition-all transform hover:scale-110 active:scale-95 cursor-pointer flex items-center p-1 rounded-sm"
+                    title="Mute / Unmute"
+                  >
+                    {isMuted ? (
+                      <VolumeX className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#FF3B30]" />
+                    ) : (
+                      <Volume2 className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#A1A1AA] hover:text-[#FFFFFF]" />
+                    )}
+                  </button>
+                </div>
+
               </div>
 
-            </div>
-
-            {/* Bottom Row: Borderless Floating Controls */}
-            <div className="flex items-center justify-center gap-6 sm:gap-8 mt-2.5">
-              <button
-                onClick={prevTrack}
-                className="text-[#71717A] hover:text-[#FFFFFF] transition-all transform hover:scale-110 active:scale-95 cursor-pointer flex items-center gap-1 text-[11px] font-bold"
-                title="Previous Track"
-              >
-                <SkipBack className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
-              </button>
-
-              <button
-                onClick={togglePlay}
-                className="text-[#FFFFFF] hover:text-[#00FF9D] transition-all transform hover:scale-115 active:scale-95 cursor-pointer flex items-center gap-1.5 text-xs font-extrabold"
-                title="Play / Pause"
-              >
-                {isPlaying ? (
-                  <Pause className="w-5 h-5 sm:w-6 sm:h-6 text-[#00FF9D]" />
-                ) : (
-                  <Play className="w-5 h-5 sm:w-6 sm:h-6" />
-                )}
-              </button>
-
-              <button
-                onClick={nextTrack}
-                className="text-[#71717A] hover:text-[#FFFFFF] transition-all transform hover:scale-110 active:scale-95 cursor-pointer flex items-center gap-1 text-[11px] font-bold"
-                title="Next Track"
-              >
-                <SkipForward className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
-              </button>
-
-              <button
-                onClick={toggleMute}
-                className="text-[#71717A] hover:text-[#FFFFFF] transition-all transform hover:scale-110 active:scale-95 cursor-pointer flex items-center gap-1 text-[11px] font-bold"
-                title="Mute / Unmute"
-              >
-                {isMuted ? (
-                  <VolumeX className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#FF3B30]" />
-                ) : (
-                  <Volume2 className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
-                )}
-              </button>
-            </div>
-
-          </div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </>
   );
